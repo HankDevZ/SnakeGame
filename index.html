@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-stage" aria-label="贪吃蛇游戏">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Snake Arcade</p>
+            <h1>贪吃蛇</h1>
+          </div>
+          <div class="score-strip" aria-label="游戏分数">
+            <div>
+              <span>分数</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>最高</span>
+              <strong id="bestScore">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-wrap">
+          <canvas id="gameCanvas" width="640" height="640" aria-label="贪吃蛇棋盘"></canvas>
+          <div class="overlay is-visible" id="overlay">
+            <div class="overlay-panel">
+              <p id="overlayKicker">准备开始</p>
+              <h2 id="overlayTitle">按开始进入游戏</h2>
+              <button class="primary-action" id="overlayAction" type="button">开始游戏</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="button-row">
+            <button id="startBtn" type="button" title="开始或重新开始">开始</button>
+            <button id="pauseBtn" type="button" title="暂停或继续">暂停</button>
+          </div>
+          <label class="speed-control" for="speedRange">
+            <span>速度</span>
+            <input id="speedRange" type="range" min="1" max="5" value="3" />
+            <strong id="speedLabel">标准</strong>
+          </label>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-label="游戏状态">
+        <section class="status-block">
+          <h2>当前状态</h2>
+          <div class="status-grid">
+            <div>
+              <span>长度</span>
+              <strong id="snakeLength">3</strong>
+            </div>
+            <div>
+              <span>等级</span>
+              <strong id="level">1</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="status-block">
+          <h2>操作</h2>
+          <div class="key-grid" aria-label="键盘操作说明">
+            <kbd>↑</kbd>
+            <kbd>↓</kbd>
+            <kbd>←</kbd>
+            <kbd>→</kbd>
+            <kbd>W</kbd>
+            <kbd>A</kbd>
+            <kbd>S</kbd>
+            <kbd>D</kbd>
+          </div>
+          <p class="hint">空格暂停，回车开始。手机可使用下方方向键。</p>
+        </section>
+
+        <section class="dpad" aria-label="触摸方向键">
+          <button class="dir up" type="button" data-direction="up" aria-label="向上">▲</button>
+          <button class="dir left" type="button" data-direction="left" aria-label="向左">◀</button>
+          <button class="dir right" type="button" data-direction="right" aria-label="向右">▶</button>
+          <button class="dir down" type="button" data-direction="down" aria-label="向下">▼</button>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
